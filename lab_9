@@ -1,0 +1,45 @@
+#include <iostream>
+
+
+template<typename T>
+T findMin(const T* Mass, int size) {
+    T Mn = Mass[0];
+    for (int i = 1; i < size; ++i) {
+        if (Mass[i] < Mn) {
+            Mn = Mass[i];
+        }
+    }
+    return Mn;
+}
+
+
+template<typename T>
+T findMax(const T* mass, int size) {
+    T Mx = mass[0];
+    for (int i = 1; i < size; ++i) {
+        if (mass[i] > Mx) {
+            Mx = mass[i];
+        }
+    }
+    return Mx;
+}
+
+
+int main() {
+    int intMass[] = {5, 2, 9, 3, 7};
+    double doubleMass[] = {3.5, 7.2, 1.8, 6.4, 2.1};
+
+    int IMax = findMax(intMass, sizeof(intMass) / sizeof(int));
+    int IMin = findMin(intMass, sizeof(intMass) / sizeof(int));
+
+    double doubleMax = findMax(doubleMass, sizeof(doubleMass) / sizeof(double));
+    double doubleMin = findMin(doubleMass, sizeof(doubleMass) / sizeof(double));
+
+    std::cout << "Min in intMass: " << IMin << std::endl;
+    std::cout << "Max in intMass: " << IMax << std::endl;
+    
+    std::cout << "Min in doubleMass: " << doubleMin << std::endl;
+    std::cout << "Max in doubleMass: " << doubleMax << std::endl;
+   
+    return 0;
+}
